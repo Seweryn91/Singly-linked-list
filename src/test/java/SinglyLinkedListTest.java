@@ -107,11 +107,18 @@ class SinglyLinkedListTest {
     }
 
     @Test
-    @DisplayName("Test getting value from incorrect index")
+    @DisplayName("Test getting value from negative index")
     void getTest_incorrectIndex() {
         SinglyLinkedList linkedList = createList(10);
 
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> linkedList.get(-1));
+    }
+
+    @Test
+    @DisplayName("Test getting value from too high index")
+    void getTest_tooHighIndex() {
+        SinglyLinkedList linkedList = createList(10);
+
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> linkedList.get(10));
     }
 
