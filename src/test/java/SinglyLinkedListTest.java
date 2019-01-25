@@ -7,19 +7,29 @@ class SinglyLinkedListTest {
 
     @Test
     @DisplayName("Test adding new elements")
-    void addTest() {
-        SinglyLinkedList linkedList = new SinglyLinkedList();
-        linkedList.add(5);
-        linkedList.add(10);
+    void addTest_result() {
+        SinglyLinkedList linkedList = createLinkedListForAddTest();
         String expectedResult = "5 10";
         String actualResult = linkedList.toString();
+        assertEquals(expectedResult, actualResult);
+
+    }
+
+    @Test
+    @DisplayName("Test Head")
+    void testAdd_testHead() {
+        SinglyLinkedList linkedList = createLinkedListForAddTest();
         String expectedHead = "5";
         String actualHead = linkedList.head().toString();
+        assertEquals(expectedHead, actualHead);
+    }
+
+    @Test
+    @DisplayName("Test Tail")
+    void tetAdd_testTail() {
+        SinglyLinkedList linkedList = createLinkedListForAddTest();
         String expectedTail = "10";
         String actualTail = linkedList.tail().toString();
-
-        assertEquals(expectedResult, actualResult);
-        assertEquals(expectedHead, actualHead);
         assertEquals(expectedTail, actualTail);
     }
 
@@ -112,6 +122,13 @@ class SinglyLinkedListTest {
             linkedList.add(i);
         }
 
+        return linkedList;
+    }
+
+    private SinglyLinkedList createLinkedListForAddTest() {
+        SinglyLinkedList linkedList = new SinglyLinkedList();
+        linkedList.add(5);
+        linkedList.add(10);
         return linkedList;
     }
 }
